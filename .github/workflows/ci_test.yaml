@@ -9,18 +9,20 @@ jobs :
     name : Testing Phase
     runs-on : ubuntu-18.04
     steps :
-      - name : Set up Env
+      - name : Checkout
         uses : actions/checkout@v2
+
+      - name : Set up Env
         run: |
           chmod +x env_config.sh
           ./env_config.sh
+
       - name : Run Python Test
-        uses : actions/checkout@v2
         run : |
           cd python
           pytest
+
       - name : Run gtest
-        uses : actions/checkout@v2
         run : |
           cd ..
           cd cpp
