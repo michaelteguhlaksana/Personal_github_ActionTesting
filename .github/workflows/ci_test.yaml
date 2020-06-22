@@ -21,10 +21,10 @@ jobs :
           pip install pylint pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name : Lint with pylint
-        run : pylint python
+        run : pylint /python/*.py
       - name  : Run python tests
         run : |
-          python -m pytest python
+          python -m pytest /python
       - name : Setup GTest
         run : |
           sudo apt-get install libgtest-dev
@@ -39,6 +39,3 @@ jobs :
           cd cpp
           g++ tester.cpp -o tester_exec -lgtest -lpthread
           ./tester_exec
-
-
-    
