@@ -1,0 +1,33 @@
+name : Test All Program
+
+on : 
+  push:
+    branches : [ master ]
+
+jobs :
+  build :
+    name : Testing Phase
+    runs-on : ubuntu-18.04
+    steps :
+      - name : Checkout
+        uses : actions/checkout@v2
+
+      - name : Set up Env
+        run: |
+          chmod +x env_config.sh
+          ./env_config.sh
+
+      - name : Run Python Test
+        run : |
+          cd python
+          pytest
+
+      - name : Run gtest
+        run : |
+          cd ..
+          cd cpp
+          g++ tester.cpp -o tester_exec -lgtest -lpthread
+          ./tester_exec
+
+
+
