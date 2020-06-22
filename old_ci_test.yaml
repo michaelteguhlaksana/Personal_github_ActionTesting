@@ -15,11 +15,21 @@ jobs :
         uses : actions/setup-python@v2
         with :
           python-version: 2.7
-      - name : Install Python dependencies
+      # - name : Install Python dependencies
+        # run : |
+          # python -m pip install --upgrade pip
+          # pip install pylint pytest
+          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name : Lint with pylint
         run : |
-          python -m pip install --upgrade pip
-          pip install pylint pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          echo $PWD
+          cd python
+          pylint increasing_arr.py
+          pylint missing_num.py
+          pylint repetitions.py
+          pylint test_all.py
+          pylint weird_algo.py
+
       - name : Lint with pylint
         run : |
           cd python
