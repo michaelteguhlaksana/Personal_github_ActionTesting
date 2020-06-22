@@ -22,11 +22,19 @@ jobs :
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name : Lint with pylint
         run : |
+          echo $PWD
           cd python
-          find . -type f -name "*.py" | xargs pylint 
+          pylint increasing_arr.py
+          pylint missing_num.py
+          pylint repetitions.py
+          pylint test_all.py
+          pylint weird_algo.py
+           
       - name  : Run python tests
         run : |
-          python -m pytest /python
+          echo $PWD
+          pytest
+          cd ..
       - name : Setup GTest
         run : |
           sudo apt-get install libgtest-dev
