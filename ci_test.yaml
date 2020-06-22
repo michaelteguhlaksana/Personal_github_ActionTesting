@@ -1,0 +1,44 @@
+name : Test All Program
+
+on : 
+  push:
+    branches : [ master ]
+
+jobs :
+  build :
+    name : Testing Phase
+    runs-on : ubuntu-18.04
+    steps :
+      - name : Checkout
+        uses : actions/checkout@v2
+      - name : Set up Python 2.7
+        uses : actions/setup-python@v2
+        with :
+          python-version: 2.7
+      - name : Install Python dependencies
+        run : |
+          python -m pip install --upgrade pip
+          pip install pylint pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name : Lint with pylint
+        run : pylint /python/*.py
+      - name  : Run python tests
+        run : |
+          python -m pytest /python
+      - name : Setup GTest
+        run : |
+          sudo apt-get install libgtest-dev
+          sudo apt-get install cmake
+          cd /usr/src/gtest
+          sudo cmake CMakeLists.txt
+          sudo make
+          sudo cp *.a /usr/lib
+          cd ~
+      - name : Run G tests
+        run : |
+          cd cpp
+          g++ tester.cpp -o tester_exec -lgtest -lpthread
+          ./tester_exec
+
+
+    
