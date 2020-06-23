@@ -26,15 +26,15 @@ jobs :
           cd python
           pylint increasing_arr.py
       - name : pylint missing_num
-          run : pylint missing_num.py
+        run : pylint missing_num.py
           
       - name : pylint repetitions
-          run : pylint repetitions.py
+        run : pylint repetitions.py
           
       - name : pylint test_all 
-          run : pylint test_all.py
+        run : pylint test_all.py
       - name : pylint weird_algo
-          run : pylint weird_algo.py
+        run : pylint weird_algo.py
            
       - name  : Run python tests
         run : |
