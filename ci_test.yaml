@@ -23,7 +23,6 @@ jobs :
       - name : pylint increasing_arr
         run : |
           echo $PWD
-          cat /usr/include/sysexits.h
           cd python
           pylint increasing_arr.py
       - name : pylint missing_num
