@@ -35,7 +35,7 @@ jobs :
           pip install cpplint
       - name : Lint with cpplint
         run : |
-          cpplint --return=0 /home/runner/work/Personal_github_ActionTesting/Personal_github_ActionTesting/cpp/* 
+          cpplint /home/runner/work/Personal_github_ActionTesting/Personal_github_ActionTesting/cpp/* 
       - name : Setup GTest
         run : |
           sudo apt-get install libgtest-dev
