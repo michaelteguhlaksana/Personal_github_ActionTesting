@@ -29,13 +29,13 @@ jobs :
         run : |
           echo $PWD
           pytest
-          cd ..
+          cd /home/runner/work/Personal_github_ActionTesting/Personal_github_ActionTesting
       - name : Setup cpplint
         run : |
           pip install cpplint
       - name : Lint with cpplint
         run : |
-          ./cpplint.py ./cpp/* 
+          ./cpplint.py /home/runner/work/Personal_github_ActionTesting/Personal_github_ActionTesting/cpp/* 
       - name : Setup GTest
         run : |
           sudo apt-get install libgtest-dev
