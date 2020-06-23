@@ -23,6 +23,7 @@ jobs :
       - name : Lint with pylint
         run : |
           echo $PWD
+          cat /usr/include/sysexits.h
           cd python
           pylint increasing_arr.py
           pylint missing_num.py
@@ -43,7 +44,7 @@ jobs :
           sudo cmake CMakeLists.txt
           sudo make
           sudo cp *.a /usr/lib
-          cd ~
+          cd /home/runner/work/Personal_github_ActionTesting/Personal_github_ActionTesting
       - name : Run G tests
         run : |
           cd cpp
