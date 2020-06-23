@@ -40,6 +40,13 @@ jobs :
           echo $PWD
           pytest
           cd ..
+
+      - name : Setup cpplint
+        run : |
+          pip install cpplint
+      - name : Lint with cpplint
+        run : |
+          ./cpplint.py ./cpp/* 
       - name : Setup GTest
         run : |
           sudo apt-get install libgtest-dev
