@@ -25,8 +25,8 @@ jobs :
           echo $PWD
           cd python
           pylint increasing_arr.py
-        - name : Lint with pylint
-         run : |
+      - name : Lint with pylint
+        run : |
             echo $PWD
             cd python
             pylint || exit 0
