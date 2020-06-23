@@ -14,5 +14,5 @@ if __name__ == '__main__':
     lgt = int(raw_input())
     array = map(int, raw_input().split())
     
-    print(increasing_arr(lgt,array))
+    print(increasing_arr(lgt, array))
     

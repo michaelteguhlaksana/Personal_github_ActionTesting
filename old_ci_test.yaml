@@ -20,15 +20,15 @@ jobs :
           # python -m pip install --upgrade pip
           # pip install pylint pytest
           # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name : Lint with pylint
-        run : |
-          echo $PWD
-          cd python
-          pylint increasing_arr.py
-          pylint missing_num.py
-          pylint repetitions.py
-          pylint test_all.py
-          pylint weird_algo.py
+      # - name : Lint with pylint
+        # run : |
+          # echo $PWD
+          # cd python
+          # pylint increasing_arr.py
+          # pylint missing_num.py
+          # pylint repetitions.py
+          # pylint test_all.py
+          # pylint weird_algo.py
 
       - name : Lint with pylint
         run : |
