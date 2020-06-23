@@ -25,16 +25,15 @@ jobs :
           echo $PWD
           cd python
           pylint increasing_arr.py
-      - name : pylint missing_num
-        run : pylint missing_num.py
-          
-      - name : pylint repetitions
-        run : pylint repetitions.py
-          
-      - name : pylint test_all 
-        run : pylint test_all.py
-      - name : pylint weird_algo
-        run : pylint weird_algo.py
+      - name : Lint with pylint
+        run : |
+            echo $PWD
+            cd python
+            pylint --exit-zero increasing_arr.py
+            pylint --exit-zero missing_num.py
+            pylint --exit-zero repetitions.py
+            pylint --exit-zero test_all.py
+            pylint --exit-zero weird_algo.py
            
       - name  : Run python tests
         run : |
