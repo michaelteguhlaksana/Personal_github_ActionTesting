@@ -29,12 +29,11 @@ jobs :
         run : |
             echo $PWD
             cd python
-            pylint || exit 0
-            pylint --exit-zero increasing_arr.py
-            pylint --exit-zero missing_num.py
-            pylint --exit-zero repetitions.py
-            pylint --exit-zero test_all.py
-            pylint --exit-zero weird_algo.py
+            pylint increasing_arr.py || exit 0
+            pylint missing_num.py || exit 0
+            pylint repetitions.py || exit 0
+            pylint test_all.py || exit 0
+            pylint weird_algo.py || exit 0
       - name  : Run python tests
         run : |
           echo $PWD
